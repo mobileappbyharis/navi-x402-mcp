@@ -1,0 +1,24 @@
+# Smithery configuration — https://smithery.ai/docs
+startCommand:
+  type: stdio
+  configSchema:
+    type: object
+    required:
+      - x402PrivateKey
+    properties:
+      x402PrivateKey:
+        type: string
+        description: Private key of the paying wallet (USDC on Base mainnet). Signs x402 payment authorizations locally.
+      maxPriceUsdc:
+        type: number
+        default: 0.05
+        description: Per-call price ceiling in USDC.
+  commandFunction: |-
+    (config) => ({
+      command: "node",
+      args: ["index.mjs"],
+      env: {
+        X402_PRIVATE_KEY: config.x402PrivateKey,
+        MAX_PRICE_USDC: String(config.maxPriceUsdc ?? 0.05)
+      }
+    })
