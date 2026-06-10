@@ -1,0 +1,46 @@
+{
+  "name": "navi-x402-mcp",
+  "version": "1.0.1",
+  "mcpName": "io.github.mobileappbyharis/navi-x402-mcp",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mobileappbyharis/navi-x402-mcp.git"
+  },
+  "description": "MCP server exposing Navi x402 paid API endpoints as agent tools - crypto prices, weather, translation, web intelligence, market reports, x402 service discovery and more. Pay-per-call in USDC on Base via the x402 protocol, no API keys.",
+  "type": "module",
+  "bin": {
+    "navi-x402-mcp": "index.mjs"
+  },
+  "files": [
+    "index.mjs",
+    "README.md",
+    "LICENSE",
+    "server.json"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "x402",
+    "payments",
+    "usdc",
+    "base",
+    "ai-agents",
+    "coinbase"
+  ],
+  "license": "MIT",
+  "author": "Navi AI Agents FZCO",
+  "homepage": "https://navi-x402-dashboard.vercel.app/catalog/navi",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.12.0",
+    "@x402/evm": "latest",
+    "@x402/fetch": "latest",
+    "viem": "^2.21.0"
+  },
+  "scripts": {
+    "start": "node index.mjs",
+    "test": "node test/smoke.mjs"
+  }
+}

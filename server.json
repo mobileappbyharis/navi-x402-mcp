@@ -1,0 +1,35 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-09-29/server.schema.json",
+  "name": "io.github.mobileappbyharis/navi-x402-mcp",
+  "description": "Paid agent tools with zero API keys: crypto prices, weather, translation, web intelligence, market reports and x402 service discovery. Pay-per-call in USDC on Base via the x402 protocol.",
+  "repository": {
+    "url": "https://github.com/mobileappbyharis/navi-x402-mcp",
+    "source": "github"
+  },
+  "version": "1.0.1",
+  "packages": [
+    {
+      "registryType": "npm",
+      "registryBaseUrl": "https://registry.npmjs.org",
+      "identifier": "navi-x402-mcp",
+      "version": "1.0.1",
+      "transport": { "type": "stdio" },
+      "environmentVariables": [
+        {
+          "name": "X402_PRIVATE_KEY",
+          "description": "Private key of the paying wallet (USDC on Base mainnet). Signs x402 payment authorizations locally.",
+          "isRequired": true,
+          "isSecret": true,
+          "format": "string"
+        },
+        {
+          "name": "MAX_PRICE_USDC",
+          "description": "Per-call price ceiling in USDC (default 0.05).",
+          "isRequired": false,
+          "isSecret": false,
+          "format": "number"
+        }
+      ]
+    }
+  ]
+}
