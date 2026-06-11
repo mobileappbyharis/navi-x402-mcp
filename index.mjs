@@ -60,7 +60,7 @@ async function loadCatalog(force = false) {
   if (!force && catalogCache.tools.length && Date.now() - catalogCache.loadedAt < CATALOG_TTL_MS) {
     return catalogCache;
   }
-  const res = await fetch(CATALOG_URL, { headers: { "User-Agent": "navi-x402-mcp/1.0" } });
+  const res = await fetch(CATALOG_URL, { headers: { "User-Agent": "navi-x402-mcp/1.0.2" } });
   if (!res.ok) throw new Error(`catalog fetch failed: HTTP ${res.status}`);
   const catalog = await res.json();
 
@@ -133,7 +133,7 @@ server.setRequestHandler(CallToolRequestSchema, async (req) => {
 
   try {
     let url = `${GATEWAY_URL}${ep.path}`;
-    const options = { method: ep.method, headers: {} };
+    const options = { method: ep.method, headers: { "User-Agent": "navi-x402-mcp/1.0.2" } };
 
     if (ep.method === "GET") {
       const qs = new URLSearchParams();

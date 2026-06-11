@@ -54,7 +54,7 @@ child.stdin.write(JSON.stringify({ jsonrpc: "2.0", method: "notifications/initia
 const tools = await rpc("tools/list", {});
 const list = tools.result?.tools || [];
 assert(list.length >= 10, `tools/list returns >= 10 tools (got ${list.length})`);
-assert(list.some(t => t.name === "navi_x402_scout"), "navi_x402_scout tool present");
+assert(list.some(t => t.name === "navi_service_scout"), "navi_service_scout tool present");
 assert(list.every(t => t.inputSchema?.type === "object"), "every tool has an object inputSchema");
 assert(list.every(t => /USDC per call/.test(t.description)), "every description discloses the price");
 
